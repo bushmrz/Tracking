@@ -2,7 +2,7 @@ import cv2
 import time
 
 # загрузка исходного видеофайла
-cap = cv2.VideoCapture('./video_sources/7.mp4')
+cap = cv2.VideoCapture('./video_sources/5.mp4')
 
 # создание объекта вычитания фона
 fgbg = cv2.createBackgroundSubtractorMOG2()
@@ -13,7 +13,7 @@ height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
 # создание объекта cv2.VideoWriter
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
-out = cv2.VideoWriter('./video_results/output_mog2_7.avi', fourcc, 20.0, (width, height))
+out = cv2.VideoWriter('./video_results/output_mog2_5.avi', fourcc, 20.0, (width, height))
 
 start_time = time.time()
 # чтение видеопотока и отслеживание объектов
@@ -36,7 +36,7 @@ while True:
         x, y, w, h = cv2.boundingRect(contour)
 
         # отрисовка прямоугольника вокруг контура, если он достаточно большой и имеет определенное соотношение сторон
-        if w > 100 and h > 100 and w < 400 and h < 400 and w/h > 1.2:
+        if w > 100 and h > 100 and w < 250 and h < 250 and w/h > 1.1:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
     # запись текущего кадра в файл

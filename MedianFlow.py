@@ -2,7 +2,7 @@ import cv2
 import time
 
 # загрузка исходного видеофайла
-cap = cv2.VideoCapture('./video_sources/8.mp4')
+cap = cv2.VideoCapture('./video_sources/5.mp4')
 
 # инициализация MedianFlow Tracker
 tracker = cv2.legacy.TrackerMedianFlow_create()
@@ -18,7 +18,7 @@ tracker.init(frame, bbox)
 
 # создание объекта cv2.VideoWriter
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
-out = cv2.VideoWriter('./video_results/output_medianflow_8.avi', fourcc, 20.0, (width, height))
+out = cv2.VideoWriter('./video_results/output_medianflow_5.avi', fourcc, 20.0, (width, height))
 
 start_time = time.time()
 # чтение видеопотока и отслеживание объектов
